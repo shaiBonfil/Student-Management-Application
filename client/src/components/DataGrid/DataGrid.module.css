@@ -1,0 +1,187 @@
+.dataGridContainer {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dataGridTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.dataGridTh {
+    padding: 12px 15px;
+    border-bottom: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    cursor: default;
+    user-select: none;
+}
+
+.dataGridTd {
+    padding: 12px 15px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.emptyCell {
+    border-bottom: none;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 8px;
+}
+
+.headerMenuContainer {
+    position: relative;
+}
+
+.headerMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.headerMenuButton:hover {
+    background-color: #e2e8f0;
+}
+
+.headerMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    z-index: 20;
+    min-width: 200px;
+    padding: 4px 0;
+}
+
+th:first-child .headerMenu {
+    left: 0;
+    right: auto;
+    /* Unset the default 'right: 0' */
+}
+
+.headerMenuList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.headerMenuItem {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.headerMenuItem:hover {
+    background-color: #f0f0f0;
+}
+
+.headerMenuDivider {
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 4px 0;
+}
+
+.headerMenuFilter {
+    padding: 4px 12px;
+}
+
+.headerMenuInput {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e0;
+    box-sizing: border-box;
+    /* Ensures padding doesn't break layout */
+}
+
+.actionCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.actionButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.actionButton:hover {
+    background-color: #f0f0f0;
+}
+
+.editButton {
+    color: #3b82f6;
+    /* blue-500 */
+}
+
+.deleteButton {
+    color: #ef4444;
+    /* red-500 */
+}
+
+.paginationContainer {
+    padding: 0 12px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.paginationControls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.paginationButton {
+    padding: 8px 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cbd5e0;
+    border-radius: 6px;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+}
+
+.paginationButtonActive {
+    background-color: #4299e1;
+    color: white;
+    border-color: #4299e1;
+}
+
+.paginationButtonDisabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.paginationSelect {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-color: #cbd5e0;
+}
