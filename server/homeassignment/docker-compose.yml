@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: students-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: homeassignmentstudentsdb
+      POSTGRES_PASSWORD: homeassignmentstudentsdb
+      POSTGRES_DB: students_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data # This saves the data even if we stop the container
+
+# Define the named volume for data persistence
+volumes:
+  pgdata:
