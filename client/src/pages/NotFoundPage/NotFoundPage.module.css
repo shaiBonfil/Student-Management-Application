@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    min-height: 80vh;
+
+    h1 {
+        font-size: 6rem;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        color: #555;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #6c757d;
+    }
+
+    .homeButton {
+        margin-top: 2rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}

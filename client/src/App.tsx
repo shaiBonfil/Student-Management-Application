@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import StudentsPage from './pages/StudentsPage/StudentsPage';
 import HonorCandidatesPage from './pages/HonorCandidatesPage/HonorCandidatesPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { FilterProvider } from './context/FilterContext';
 import styles from './App.module.css';
 
@@ -44,6 +45,7 @@ function App() {
                             path='/honor-candidates'
                             element={<HonorCandidatesPage />}
                         />
+                        <Route path='*' element={<NotFoundPage />} />
                     </Routes>
                 </main>
             </BrowserRouter>
