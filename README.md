@@ -91,7 +91,7 @@ This project uses a hybrid setup: the database runs in a Docker container, while
 
 ## API Endpoints
 
-A Postman collection (`student-api.json`) is included in the repository. You can import it to test the API.
+A Postman collection (`Student_API.postman_collection.json`) is included in the repository. You can import it to test the API.
 
 * `{{baseUrl}}`: `http://localhost:8080/api/v1`
 
