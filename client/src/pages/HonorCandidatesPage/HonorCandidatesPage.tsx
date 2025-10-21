@@ -14,6 +14,7 @@ import type {
 } from '../../components/DataGrid/DataGrid';
 import Modal from '../../components/Modal/Modal';
 import StudentForm from '../../components/StudentForm/StudentForm';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import styles from './HonorCandidatesPage.module.css';
 
 const HONOR_COLUMNS: readonly DataGridColumn<Student>[] = [
@@ -150,16 +151,18 @@ const HonorCandidatesPage = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <DataGrid
-                    columns={HONOR_COLUMNS}
-                    data={students}
-                    onEdit={handleOpenEditModal}
-                    filters={honorFilters.dynamic}
-                    onFilterChange={handleFilterChange}
-                    sortConfig={sortConfig}
-                    onSort={handleSort}
-                    onClearSort={handleClearSort}
-                />
+                <ErrorBoundary>
+                    <DataGrid
+                        columns={HONOR_COLUMNS}
+                        data={students}
+                        onEdit={handleOpenEditModal}
+                        filters={honorFilters.dynamic}
+                        onFilterChange={handleFilterChange}
+                        sortConfig={sortConfig}
+                        onSort={handleSort}
+                        onClearSort={handleClearSort}
+                    />
+                </ErrorBoundary>
             )}
 
             <Modal

@@ -14,6 +14,7 @@ import type {
 } from '../../components/DataGrid/DataGrid';
 import Modal from '../../components/Modal/Modal';
 import StudentForm from '../../components/StudentForm/StudentForm';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import styles from './StudentsPage.module.css';
 
 const ALL_STUDENTS_COLUMNS: readonly DataGridColumn<Student>[] = [
@@ -209,29 +210,33 @@ const StudentsPage = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <DataGrid
-                    columns={ALL_STUDENTS_COLUMNS}
-                    data={allStudents}
-                    onEdit={handleOpenEditModal}
-                    filters={allStudentsFilters.dynamic}
-                    onFilterChange={handleFilterChangeAll}
-                    sortConfig={sortConfigAll}
-                    onSort={handleSortAll}
-                    onClearSort={handleClearSortAll}
-                />
+                <ErrorBoundary>
+                    <DataGrid
+                        columns={ALL_STUDENTS_COLUMNS}
+                        data={allStudents}
+                        onEdit={handleOpenEditModal}
+                        filters={allStudentsFilters.dynamic}
+                        onFilterChange={handleFilterChangeAll}
+                        sortConfig={sortConfigAll}
+                        onSort={handleSortAll}
+                        onClearSort={handleClearSortAll}
+                    />
+                </ErrorBoundary>
             )}
 
             <h2>Excellent Students (GPA ≥ 90)</h2>
-            <DataGrid
-                columns={EXCELLENT_STUDENTS_COLUMNS}
-                data={excellentStudents}
-                onEdit={handleOpenEditModal}
-                filters={excellentStudentsFilters.dynamic}
-                onFilterChange={handleFilterChangeExcellent}
-                sortConfig={sortConfigExcellent}
-                onSort={handleSortExcellent}
-                onClearSort={handleClearSortExcellent}
-            />
+            <ErrorBoundary>
+                <DataGrid
+                    columns={EXCELLENT_STUDENTS_COLUMNS}
+                    data={excellentStudents}
+                    onEdit={handleOpenEditModal}
+                    filters={excellentStudentsFilters.dynamic}
+                    onFilterChange={handleFilterChangeExcellent}
+                    sortConfig={sortConfigExcellent}
+                    onSort={handleSortExcellent}
+                    onClearSort={handleClearSortExcellent}
+                />
+            </ErrorBoundary>
 
             <Modal
                 isOpen={isModalOpen}
