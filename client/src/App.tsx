@@ -13,7 +13,9 @@ import { FilterProvider } from './context/FilterContext';
 import styles from './App.module.css';
 
 function App() {
-    const [activeLink, setActiveLink] = useState(0);
+    const [activeLink, setActiveLink] = useState(
+        location.pathname === '/honor-candidates' ? 1 : 0,
+    );
 
     return (
         <FilterProvider>
