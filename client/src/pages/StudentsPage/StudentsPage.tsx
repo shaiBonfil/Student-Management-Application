@@ -14,6 +14,7 @@ import type {
 } from '../../components/DataGrid/DataGrid';
 import Modal from '../../components/Modal/Modal';
 import StudentForm from '../../components/StudentForm/StudentForm';
+import { Toaster, toast } from '../../components/Toaster/Toaster';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import styles from './StudentsPage.module.css';
 
@@ -53,6 +54,7 @@ const StudentsPage = () => {
             setAllStudents(data);
         } catch (err) {
             console.error('Failed to fetch students:', err);
+            toast.error('Oops, something went wrong');
         }
         setLoading(false);
     }, []);
@@ -68,6 +70,7 @@ const StudentsPage = () => {
             setExcellentStudents(data);
         } catch (err) {
             console.error('Failed to fetch excellent students:', err);
+            toast.error('Oops, something went wrong');
         }
     }, []);
 
@@ -184,8 +187,10 @@ const StudentsPage = () => {
         try {
             if (editingStudent) {
                 await updateStudent(editingStudent.id, data);
+                toast.success('Student updated successfully', 'light-filled');
             } else {
                 await addStudent(data);
+                toast.success('Student added successfully', 'light-filled');
             }
             // Refresh both lists and close modal
             fetchAllStudents();
@@ -194,12 +199,13 @@ const StudentsPage = () => {
             setEditingStudent(null);
         } catch (err) {
             console.error('Failed to save student:', err);
-            alert('Error: Could not save student. Check console.');
+            toast.error('Could not save student', 'light-filled');
         }
     };
 
     return (
         <div className={styles.page}>
+            <Toaster />
             <h1>Students Management</h1>
 
             <button onClick={handleOpenAddModal} className={styles.addButton}>

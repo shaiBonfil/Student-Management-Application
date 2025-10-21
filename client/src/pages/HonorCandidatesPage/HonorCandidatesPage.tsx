@@ -14,6 +14,7 @@ import type {
 } from '../../components/DataGrid/DataGrid';
 import Modal from '../../components/Modal/Modal';
 import StudentForm from '../../components/StudentForm/StudentForm';
+import { Toaster, toast } from '../../components/Toaster/Toaster';
 import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 import styles from './HonorCandidatesPage.module.css';
 
@@ -47,6 +48,7 @@ const HonorCandidatesPage = () => {
             setStudents(data);
         } catch (err) {
             console.error('Failed to fetch honor students:', err);
+            toast.error('Oops, something went wrong');
         }
         setLoading(false);
     }, [honorFilters.topPerDepartment]);
@@ -127,12 +129,13 @@ const HonorCandidatesPage = () => {
             setEditingStudent(null);
         } catch (err) {
             console.error('Failed to save student:', err);
-            alert('Error: Could not save student. Check console.');
+            toast.error('Could not save student', 'light-filled');
         }
     };
 
     return (
         <div className={styles.page}>
+            <Toaster />
             <h1>Honor Candidates (GPA ≥ 90)</h1>
 
             <div className={styles.filterBar}>
